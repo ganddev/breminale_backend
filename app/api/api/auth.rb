@@ -10,7 +10,7 @@ module API
       post '/session' do
         token = AuthorizationService.perform(params[:email], params[:password])
         error!("['401'] Unauthorized user might not exists", :unauthorized) unless token
-        token
+        { token: token }
       end
     end
   end

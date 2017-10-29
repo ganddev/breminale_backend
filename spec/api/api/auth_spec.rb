@@ -10,9 +10,15 @@ describe API::Auth do
   end
 
   context 'User exists and email and password are correct' do
-    it 'returns a token' do
+    before do
       post '/auth/session', params: params, headers: nil
+    end
+    it 'returns a with succes http status' do
       expect(response).to have_http_status(:success)
+    end
+
+    it 'matches schema' do
+      expect(response).to match_response_schema('token')
     end
   end
 
