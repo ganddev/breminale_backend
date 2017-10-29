@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
   "https://github.com/#{repo_name}.git"
 end
 
@@ -29,21 +29,21 @@ gem 'coveralls', require: false
 group :development, :test do
   gem 'dotenv-rails', '~> 2.2.1'
 
-    gem 'byebug', platforms: %i[mri mingw x64_mingw]
-    gem 'pry-byebug'
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'pry-byebug'
 
-    # Testing
-    gem 'factory_bot_rails', '~> 4.0'
-    gem 'json_matchers', '~> 0.7.0'
-    gem 'rspec-rails', '~> 3.6.0'
-    gem 'rspec_junit_formatter', '~> 0.3.0', require: false
-    gem 'webmock', '~> 3.0.1', require: false
+  # Testing
+  gem 'factory_bot_rails', '~> 4.0'
+  gem 'json_matchers', '~> 0.7.0'
+  gem 'rspec-rails', '~> 3.6.0'
+  gem 'rspec_junit_formatter', '~> 0.3.0', require: false
+  gem 'webmock', '~> 3.0.1', require: false
 
-    gem 'rubocop', '~> 0.49.1', require: false
-    gem 'rubocop-checkstyle_formatter', '~> 0.4.0', require: false
-    gem 'rubocop-rspec', '~> 1.16.0', require: false
+  gem 'rubocop', '~> 0.49.1', require: false
+  gem 'rubocop-checkstyle_formatter', '~> 0.4.0', require: false
+  gem 'rubocop-rspec', '~> 1.16.0', require: false
 
-    gem 'simplecov', '~> 0.15.1', require: false
+  gem 'simplecov', '~> 0.15.1', require: false
 end
 
 group :development do
@@ -55,4 +55,4 @@ group :development do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
