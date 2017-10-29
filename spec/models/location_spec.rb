@@ -3,7 +3,7 @@ require 'rails_helper'
 describe Location, type: :model do
   describe 'validations' do
     let!(:user) { create :user }
-    let(:valid_params) { attributes_for(:location).merge(user: user, name: 'test location', description: 'test drescription', latitude: 123213.123123, longitude: 123123.23, image_url: './test_image.jpg') }
+    let(:valid_params) { attributes_for(:location).merge(user: user, name: 'test location', description: 'test drescription', latitude: 123_213.123123, longitude: 123_123.23, image_url: './test_image.jpg') }
 
     let(:location) { Location.new(location_params) }
 
@@ -44,7 +44,7 @@ describe Location, type: :model do
     end
 
     context 'Missing image_path' do
-      let(:location_params) {valid_params.merge(image_url: nil)}
+      let(:location_params) { valid_params.merge(image_url: nil) }
 
       it 'is invalid' do
         expect(location).to be_invalid

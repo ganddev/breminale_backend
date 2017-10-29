@@ -20,12 +20,12 @@ module API
       end
       post '/' do
         location = current_user.locations.create(params)
-        error!("[422] Unprocessable entity",422) unless location.persisted?
+        error!("['422'] Unprocessable entity", 422) unless location.persisted?
       end
       desc 'Returns a single location for given id' do
         success Entities::Location
       end
-      params  do
+      params do
         requires :id, type: Integer
       end
       get '/:id' do

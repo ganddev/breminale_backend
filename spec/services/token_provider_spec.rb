@@ -17,7 +17,7 @@ describe TokenProvider do
       let(:token) { provider.issue_token(user) }
 
       it 'is valid' do
-        expect(provider.valid?(token)).to be_truthy
+        expect(provider).to be_valid(token)
       end
     end
 
@@ -25,7 +25,7 @@ describe TokenProvider do
       let(:token) { 'Meintest' }
 
       it 'is invalid' do
-        expect(provider.valid?(token)).to be_falsey
+        expect(provider).not_to be_valid(token)
       end
     end
   end
