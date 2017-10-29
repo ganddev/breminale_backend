@@ -11,7 +11,7 @@ module API
       post '/' do
         user = User.find_by(email: params[:email])
         error!('[400] User with email already exists', 400) if user
-        User.create(params)
+        user = User.create(params)
         token = TokenProvider.issue_token(user)
         { token: token }
       end

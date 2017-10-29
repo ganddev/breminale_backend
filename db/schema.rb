@@ -10,20 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171028191027) do
+ActiveRecord::Schema.define(version: 20171029163428) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "events", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.string "description"
-    t.datetime "start_time"
+    t.datetime "start_time", null: false
     t.string "sound_cloud_url"
     t.string "sound_cloud_user_id"
     t.bigint "location_id"
     t.bigint "user_id"
-    t.boolean "archived"
+    t.boolean "archived", default: false, null: false
     t.string "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -32,12 +32,12 @@ ActiveRecord::Schema.define(version: 20171028191027) do
   end
 
   create_table "locations", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.string "description"
-    t.float "latitude"
-    t.float "longitude"
+    t.float "latitude", null: false
+    t.float "longitude", null: false
     t.bigint "user_id"
-    t.boolean "archived"
+    t.boolean "archived", default: false
     t.string "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
