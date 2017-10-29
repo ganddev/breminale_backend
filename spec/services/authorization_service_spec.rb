@@ -19,8 +19,8 @@ describe AuthorizationService do
 
   context 'When user exists' do
     let(:user) { create :user }
-    let(:email) {user.email}
-    let(:password) {user.password}
+    let(:email) { user.email }
+    let(:password) { user.password }
 
     it 'Returns a token' do
       expect(service.perform).not_to be_nil
@@ -33,7 +33,11 @@ describe AuthorizationService do
     end
   end
 
-  context 'When password is wrong' do
+  context 'When user exists but password is wrong' do
+    let(:user) { create :user }
+    let(:email) { user.email }
+    let(:password) { user.password + 'will_be_wrong' }
+
     it 'Returns nil as result' do
       expect(service.perform).to be_nil
     end

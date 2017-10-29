@@ -10,6 +10,7 @@ module API
     mount API::Locations
     mount API::Events
     mount API::SignUp
+    mount API::Auth
 
     add_swagger_documentation(
       mount_path: '/swagger_doc',

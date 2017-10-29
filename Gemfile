@@ -22,6 +22,7 @@ gem 'grape-entity', '~> 0.6.1'
 gem 'grape-swagger', '~> 0.27.3'
 gem 'grape-swagger-entity', '~> 0.2.1'
 gem 'jwt', '~> 2.0.0'
+gem 'hashie-forbidden_attributes'
 
 # Codecoverage
 gem 'coveralls', require: false
