@@ -1,24 +1,22 @@
 require 'jwt'
 class TokenProvider
-  def self.issue_token(user)
-    payload = {:data => 'test'}
+  SECRET = Rails.application.secrets.secret_key_base.freeze
 
-    JWT.encode payload, nil, 'none'
+  def self.issue_token(user)
+    payload = {
+      user_id: user.id,
+      exp: 1.day.from_now.to_i
+    }
+    JWT.encode payload, SECRET, 'HS256'
   end
 
   def self.valid?(token)
     begin
-      decode(token)
-    rescue decode_error, signature_error
+      JWT.decode token, SECRET, true, algorithm: 'HS256'
+    rescue JWT::DecodeError, JWT::ImmatureSignature
       # IF this token is invalid, the JWT gem will raise this error and by caching it in this block
       # the returning valud should be false
       false
     end
-  end
-
-  private
-
-  def decode(token)
-    JWT.decode token, Rails.application.secrets.secret_key_base, 'HS256'
   end
 end

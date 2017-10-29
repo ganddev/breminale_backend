@@ -2,7 +2,13 @@ require 'rails_helper'
 
 describe User, type: :model do
   describe 'validations' do
-    let(:valid_params) { attributes_for(:user).merge(email: 'test@test.de', password: 'password', password_confirmation: 'password') }
+    let(:valid_params) do
+      attributes_for(:user).merge(
+        email: 'test@test.de',
+        password: 'password',
+        password_confirmation: 'password'
+      )
+    end
 
     let(:user) { User.new(user_params) }
 
