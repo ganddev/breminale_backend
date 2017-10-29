@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "latitude",
+    "longitude",
+    "archived"
+  ],
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "latitude": {
+      "type": "number"
+    },
+    "longitude": {
+      "type": "number"
+    },
+    "desciption": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "archived": {
+      "type": "boolean"
+    }
+  }
+}

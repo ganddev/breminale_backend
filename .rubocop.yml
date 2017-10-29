@@ -1,0 +1,52 @@
+require: rubocop-rspec
+
+AllCops:
+  TargetRubyVersion: 2.4
+  TargetRailsVersion: 5.1
+  DisplayCopNames: true
+  Exclude:
+    - 'bin/*'
+    - 'db/schema.rb'
+    - 'tmp/**/*'
+
+Rails:
+  Enabled: true
+
+Layout/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Metrics/ClassLength:
+  Max: 200
+
+Metrics/BlockLength:
+  Exclude:
+    - 'app/api/**/*'
+    - 'spec/**/*'
+
+Metrics/LineLength:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/StringLiterals:
+  Exclude:
+    - 'config/**/*'
+
+Rails/HasManyOrHasOneDependent:
+  Enabled: false
+
+RSpec/DescribeClass:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false

@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "type": "object",
+  "required": ["id", "name", "location_id", "start_time", "archived"],
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": ["null", "string"]
+    },
+    "location_id": {
+      "type": "integer"
+    },
+    "sound_cloud_url": {
+      "type" : ["null", "string"]
+    },
+    "sound_cloud_user_id": {
+      "type": ["null", "string"]
+    },
+    "start_time":{
+      "type": "string"
+    },
+    "archived": {
+      "type":"boolean"
+    }
+  }
+}

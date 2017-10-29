@@ -1,0 +1,35 @@
+version: '2'
+
+services:
+  server:
+    build: .
+    volumes:
+      - '.:/app'
+    ports:
+      - '5000:5000'
+    links:
+      - postgres
+    environment:
+      DATABASE_URL: postgres://docker:docker@postgres/breminale_api?
+    container_name: breminale_server
+    networks:
+      - external
+      - internal
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_USER: docker
+      POSTGRES_PASSWORD: docker
+    networks:
+      - internal
+
+networks:
+  external:
+    driver: bridge
+  internal:
+    driver: bridge
