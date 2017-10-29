@@ -5,7 +5,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 
@@ -14,7 +13,7 @@ gem 'pg', '~> 0.21'
 # Use Puma as the app server
 gem 'puma', '~> 3.10'
 
-#Password
+# Password
 gem 'bcrypt', '~> 3.1.7'
 
 # API
@@ -23,6 +22,9 @@ gem 'grape-entity', '~> 0.6.1'
 gem 'grape-swagger', '~> 0.27.3'
 gem 'grape-swagger-entity', '~> 0.2.1'
 gem 'jwt', '~> 2.0.0'
+
+# Codecoverage
+gem 'coveralls', require: false
 
 group :development, :test do
   gem 'dotenv-rails', '~> 2.2.1'

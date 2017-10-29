@@ -1,7 +1,6 @@
 require 'rails_helper'
 
-describe API::Events, type: :request do
-
+describe API::Locations, type: :request do
   describe 'GET /locations' do
     before do
       create(:location)
@@ -24,7 +23,7 @@ describe API::Events, type: :request do
     end
 
     it 'returns 404 when event not exists' do
-      get "/locations/#{location.id+1}", headers: headers
+      get "/locations/#{location.id + 1}", headers: headers
       expect(response).to have_http_status(404)
     end
   end

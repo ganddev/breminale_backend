@@ -16,7 +16,7 @@ module API
       end
       get '/:id' do
         event = Event.find_by(id: params[:id])
-        error!('[404] Resource not found', 404) unless event
+        error!("['404'] Resource not found", 404) unless event
         present event, with: Entities::Event
       end
     end

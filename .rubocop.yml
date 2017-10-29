@@ -8,9 +8,7 @@ AllCops:
     - 'bin/*'
     - 'db/schema.rb'
     - 'tmp/**/*'
-
-Rails:
-  Enabled: true
+    - 'db/migrations/**'
 
 Layout/AlignParameters:
   EnforcedStyle: with_fixed_indentation
@@ -41,9 +39,6 @@ Style/FrozenStringLiteralComment:
 Style/StringLiterals:
   Exclude:
     - 'config/**/*'
-
-Rails/HasManyOrHasOneDependent:
-  Enabled: false
 
 RSpec/DescribeClass:
   Enabled: false
