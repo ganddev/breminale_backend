@@ -22,4 +22,20 @@ describe API::SignUp do
       expect(response).to match_response_schema('token')
     end
   end
+
+  context 'User already exists' do
+    let(:user) { create :user }
+    let(:params) do
+      {
+        email: user.email,
+        password: 'mafsdfa',
+        password_confirmation: 'mafsdfa'
+      }
+    end
+
+    it 'returns http status code 400' do
+      post '/sign_up', params: params, headers: nil
+      expect(response).to have_http_status(400)
+    end
+  end
 end
