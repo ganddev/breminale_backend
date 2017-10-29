@@ -2,6 +2,15 @@ module API
   class API < Grape::API
     format :json
 
+    HEADERS = {
+      Authorization:  {
+        description: 'JWT - Validates your identity',
+        required: true
+      }
+    }.freeze
+
+    helpers API::AuthHelper
+
     get '/' do
       { version: `git rev-parse --short HEAD`.strip }
     end

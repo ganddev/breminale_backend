@@ -27,7 +27,7 @@
     "longitude": {
       "type": "number"
     },
-    "desciption": {
+    "image_url": {
       "type": [
         "null",
         "string"
